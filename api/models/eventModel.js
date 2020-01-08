@@ -7,7 +7,7 @@ var EventSchema = new Schema({
         type: String,
         required: 'Event Name Required'
     },
-    eventDescription:{
+    /*eventDescription:{
         type: String
     },
     imagePrimary:{
@@ -44,7 +44,7 @@ var EventSchema = new Schema({
             type: [Number],
             index: '2d'
         }
-    }
+    }*/
 });
 
 module.exports = mongoose.model('Event', EventSchema);

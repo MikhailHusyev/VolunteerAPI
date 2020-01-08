@@ -6,6 +6,15 @@ var express = require('express'),
     port = process.env.PORT || 3000;
 
 
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://localhost/dev', {useUnifiedTopology: true, useNewUrlParser: true},
+     function(err, db){
+        if(err) console.log(err);
+        else console.log('Connected to DB!');
+    }
+);
+
 
 var routes = require('./api/routes/eventRoutes');
 routes(app);
