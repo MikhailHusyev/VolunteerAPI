@@ -4,11 +4,10 @@ module.exports = function(app){
     var event = require('../controllers/eventController');
 
     app.route('/v1/events')
-        .get(event.getEvents)
-        .post(event.postEvent);
+        .get(event.getEvents);
     
-    app.route('/v1/event/:eventId')
+    /*app.route('/v1/event/:eventId')
         .get(event.getEvent)
         .put(event.updateEvent)
-        .delete(event.deleteEvent);
+        .delete(event.deleteEvent);*/
 };
