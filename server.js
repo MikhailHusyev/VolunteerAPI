@@ -2,7 +2,7 @@
 var express = require('express'),
     app = express(),
     mongoose = require('mongoose'),
-    Event = require('./api/models/eventModel')
+    Events = require('./api/models/eventModel')
     port = process.env.PORT || 3000;
 
 
