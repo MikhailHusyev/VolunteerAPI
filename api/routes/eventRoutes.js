@@ -8,6 +8,6 @@ module.exports = function(app){
     
     app.route('/v1/event/:eventId')
         .get(event.getEvent)
-        /*.put(event.updateEvent)*/
+        .put(event.updateEvent)
         .delete(event.deleteEvent);
 };
