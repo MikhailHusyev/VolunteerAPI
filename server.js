@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 var express = require('express'),
     app = express(),
@@ -9,7 +10,11 @@ var express = require('express'),
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/dev', {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false},
+var dbHost = process.env.DB_HOST;
+var dbDatatabase = process.env.DB_DATABASE;
+
+
+mongoose.connect(dbHost+dbDatatabase, {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false},
      function(err, db){
         if(err) console.log(err);
         else console.log('Connected to DB!');
