@@ -4,7 +4,9 @@
   "description": "API for Volunteer Site",
   "main": "index.js",
   "scripts": {
-    "test": "server.js"
+    "start": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
+    "start:dev": "node server.js",
+    "start:prod": "node ."
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,9 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "if-env": "^1.0.4",
     "mongoose": "^5.8.2",
+    "node-geocoder": "^3.25.0",
     "reload": "^3.0.3"
   }
 }

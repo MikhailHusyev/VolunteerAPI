@@ -21,6 +21,17 @@ exports.getEvents = function(req, res){
     });
 };
 
+exports.addEvent = function(req, res){
+    let event = new Event(req.body);
+    
+    event.save(function(err, task){
+        if(err){
+            res.send(err);
+        }
+        res.json(task);
+    });
+}
+
 // Finds a single event by id
 exports.getEvent = function(req, res){
     Event.findById(req.params.eventId, function(err, event){
@@ -52,7 +63,7 @@ exports.deleteEvent = function(req, res){
 
 exports.updateEvent = function(req, res){
 
-    Event.findByIdAndU({_id: req.params.eventId}, req.body, {useFindAndModify: true}, function(err, doc){
+    Event.findByIdAndUpdate({_id: req.params.eventId}, req.body, {useFindAndModify: true}, function(err, doc){
         if(err){
             //TODO: Log errors instead of sending it.
             res.send(500, err);
